@@ -16,7 +16,11 @@
     "type": "git",
     "url": "https://github.com/ashleygwilliams/my_package.git"
   },
-
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
   "author": "a.kozeruk",
   "license": "ISC",
   "devDependencies": {

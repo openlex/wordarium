@@ -21,7 +21,7 @@ module.exports = {
 	],
 
 	webpackFinal: async config => {
-		const plugins = [...require('../webpack.plugins')];
+		const plugins = [...require('../webpack/webpack.plugins')];
 		const loaders = [
 			require('../webpack/webpack.rules'),
 			{
