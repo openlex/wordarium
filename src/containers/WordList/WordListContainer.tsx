@@ -3,7 +3,7 @@ import { WordList } from "@components";
 import { wordListMock } from "@mocks/wordList.mock";
 
 export interface IWordListContainerProps {
-    a: string
+    a: string;
 }
 
 export interface IWordListContainerState {
