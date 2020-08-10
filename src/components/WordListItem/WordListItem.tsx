@@ -5,12 +5,11 @@ export type IWordListItemProps = {
     isDifficult?: boolean;
     isActive?: boolean;
     onClick?(): void;
-}
+};
 
 // вместо shouldComponentUpdate можно использовать
 // export class WordListItem extends React.PureComponent<IWordListItemProps> {
 export class WordListItem extends React.Component<IWordListItemProps> {
-
     shouldComponentUpdate(nextProps: Readonly<IWordListItemProps>): boolean {
         return nextProps.isActive !== this.props.isActive;
     }
