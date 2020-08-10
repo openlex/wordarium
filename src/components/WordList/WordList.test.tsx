@@ -5,9 +5,12 @@ import { wordListMock } from "@mocks/wordList.mock";
 
 describe("WordList markup", () => {
     let wordList: ShallowWrapper = {} as ShallowWrapper;
+    const onClick = jest.fn();
 
     beforeEach(() => {
-        wordList = shallow(<WordList wordList={wordListMock} />);
+        wordList = shallow(
+            <WordList onClick={onClick} wordList={wordListMock} />
+        );
     });
 
     it("Has same number of element as in array", () => {

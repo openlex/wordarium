@@ -5,7 +5,6 @@ import { WordListItem } from "@components";
 describe("WordListItem markup", () => {
     let wordListItem: ShallowWrapper = {} as ShallowWrapper;
     const textValue = "text";
-    // const id = 'id';
 
     beforeEach(() => {
         wordListItem = shallow(<WordListItem value={textValue} />);
@@ -18,7 +17,10 @@ describe("WordListItem markup", () => {
     });
 
     it("Has difficult marker if isDifficult props", () => {
-        wordListItem.setProps({ isDifficult: true });
+        wordListItem = shallow(
+            <WordListItem value={textValue} isDifficult={true} />
+        );
+
         expect(
             wordListItem.find('[data-test-id="isDifficult"]').length
         ).toEqual(1);
@@ -31,8 +33,22 @@ describe("WordListItem markup", () => {
         ).toEqual(0);
     });
 
+    it("IS ACTIVE if isActive props", () => {
+        wordListItem.setProps({ isActive: true });
+        expect(wordListItem.find('[data-test-id="isActive"]').length).toEqual(
+            1
+        );
+    });
+
+    it("IS NOT ACTIVE if has not got isActive props", () => {
+        wordListItem.setProps({ isActive: false });
+        expect(wordListItem.find('[data-test-id="isActive"]').length).toEqual(
+            0
+        );
+    });
+
     it("return NULL if VALUE is empty", () => {
-        wordListItem.setProps({ value: "" });
+        wordListItem = shallow(<WordListItem value="" />);
         expect(wordListItem.type()).toEqual(null);
     });
 
