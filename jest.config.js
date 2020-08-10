@@ -10,6 +10,7 @@ module.exports = {
         "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js",
         "^@/(.*)$": "<rootDir>/src/$1",
         "^@mocks(.*)$": "<rootDir>/__mocks__$1",
+        "^@pages(.*)$": "<rootDir>/src/pages$1",
         "^@containers(.*)$": "<rootDir>/src/containers$1",
         "^@components(.*)$": "<rootDir>/src/components$1",
         "^@types(.*)$": "<rootDir>/src/types$1",
