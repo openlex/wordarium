@@ -1,21 +1,33 @@
 import React from "react";
-import { IWord } from "@types";
 
-export type wordListItemProps = Omit<IWord, "id">;
+export type IWordListItemProps = {
+    value: string;
+    isDifficult?: boolean;
+    isActive?: boolean;
+    onClick?(): void;
+}
 
-export const WordListItem: React.FC<wordListItemProps> = (
-    props: wordListItemProps
-) => {
-    const { value, isDifficult } = props;
+// вместо shouldComponentUpdate можно использовать
+// export class WordListItem extends React.PureComponent<IWordListItemProps> {
+export class WordListItem extends React.Component<IWordListItemProps> {
 
-    if (!value) {
-        return null;
+    shouldComponentUpdate(nextProps: Readonly<IWordListItemProps>): boolean {
+        return nextProps.isActive !== this.props.isActive;
     }
 
-    return (
-        <li data-test-id={"item"}>
-            <span data-test-id="value">{value}</span>
-            {isDifficult && <span data-test-id="isDifficult">*</span>}
-        </li>
-    );
-};
+    render() {
+        const { value, isDifficult, isActive, onClick } = this.props;
+
+        if (!value) {
+            return null;
+        }
+
+        return (
+            <li data-test-id={"item"} onClick={onClick}>
+                {isActive && <span data-test-id="isActive"> `&gt; </span>}
+                <span data-test-id="value">{value}</span>
+                {isDifficult && <span data-test-id="isDifficult">*</span>}
+            </li>
+        );
+    }
+}

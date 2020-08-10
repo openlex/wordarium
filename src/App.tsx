@@ -1,10 +1,11 @@
 import React from "react";
-import { WordListContainer } from "@containers";
+import { ErrorScreenContainer } from "@containers";
+import { MakeWordPage } from "@pages";
 
 export const App: React.FC<{}> = () => {
     return (
-        <div>
-            <WordListContainer />
-        </div>
+        <ErrorScreenContainer>
+            <MakeWordPage />
+        </ErrorScreenContainer>
     );
 };
