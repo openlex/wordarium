@@ -14,6 +14,7 @@ module.exports = {
         "^@containers(.*)$": "<rootDir>/src/containers$1",
         "^@components(.*)$": "<rootDir>/src/components$1",
         "^@types(.*)$": "<rootDir>/src/types$1",
+        "^@styles(.*)$": "<rootDir>/src/styles$1",
         "^.+\\.(css|scss)$": "identity-obj-proxy",
     },
     transformIgnorePatterns: ["/node_modules/"],
