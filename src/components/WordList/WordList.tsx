@@ -10,18 +10,18 @@ export interface IWordListProps {
 export const WordList: React.FC<IWordListProps> = (props: IWordListProps) => {
     return (
         <ul>
-            {props.wordList.map((wordListItem) => {
+            {props.wordList.map(({ id, value, isDifficult, isActive }) => {
                 const onClick = () => {
-                    props.onClick(wordListItem.id);
+                    props.onClick(id);
                 };
 
                 return (
                     <WordListItem
-                        key={wordListItem.id}
+                        key={id}
                         onClick={onClick}
-                        value={wordListItem.value}
-                        isDifficult={wordListItem.isDifficult}
-                        isActive={wordListItem.isActive}
+                        value={value}
+                        isDifficult={isDifficult}
+                        isActive={isActive}
                     />
                 );
             })}

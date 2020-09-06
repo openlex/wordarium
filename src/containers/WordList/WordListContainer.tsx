@@ -3,7 +3,9 @@ import { WordList } from "@components";
 import { IWord } from "@types";
 import { IWordListResponseItem } from "@types";
 
-export interface IWordListContainerProps {}
+export interface IWordListContainerProps {
+    users?: string;
+}
 export interface IWordListContainerState {
     wordList: IWord[];
     isSendEnabled: boolean;
