@@ -5,15 +5,25 @@ module.exports = {
         "@babel/preset-typescript",
     ],
     plugins: [
+        "emotion",
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-transform-runtime",
     ],
     env: {
         production: {
-            plugins: ["babel-plugin-jsx-remove-data-test-id"],
+            plugins: ["emotion", "babel-plugin-jsx-remove-data-test-id"],
         },
         development: {
-            plugins: ["babel-plugin-jsx-remove-data-test-id"],
+            plugins: [
+                ["emotion", { sourceMap: true }],
+                "babel-plugin-jsx-remove-data-test-id",
+            ],
+        },
+        test: {
+            plugins: [
+                ["emotion", { sourceMap: true }],
+                "@babel/plugin-transform-modules-commonjs",
+            ],
         },
     },
 };

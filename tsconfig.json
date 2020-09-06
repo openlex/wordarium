@@ -21,6 +21,9 @@
 	  "@mocks/*": ["./__mocks__/*"],
 	  "@mocks": ["./__mocks__/index"],
 
+	  "@styles/*": ["./src/styles/*"],
+	  "@styles": ["./src/styles/index"],
+
 	  "@/*": ["src/*"]
 	},
 	"removeComments": true,
