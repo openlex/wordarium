@@ -1,6 +1,6 @@
 import * as React from "react";
 import { WordListContainer } from "@containers";
-import { MainTitle, PlayerAvatar } from "@components";
+import { PlayerAvatar } from "@components";
 import { colors } from "@styles";
 
 export class MakeWordPage extends React.Component {
@@ -14,7 +14,6 @@ export class MakeWordPage extends React.Component {
                     }
                     color={colors.red}
                 />
-                <MainTitle title="Вордариум" />
                 <WordListContainer />
             </>
         );
