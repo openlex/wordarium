@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { AuthApi } from "@api";
+import { Header, LoadingScreen } from "@components";
 import { ErrorScreenContainer, RegistrationForm } from "@containers";
 import { MakeWordPage } from "@pages";
-import { Switch, Route, useLocation } from "react-router-dom";
 import { ROUTES } from "@/ROUTES";
-import { Header } from "@components";
-import { AuthApi } from "@/api/Auth/Auth";
-import { LoadingScreen } from "@components/LoadingScreen/LoadingScreen";
 
 enum ERespStatus {
     PENDING = 0,

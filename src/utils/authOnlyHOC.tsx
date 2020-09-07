@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ROUTES } from "@/ROUTES";
-import { AuthApi } from "@/api/Auth/Auth";
+import { AuthApi } from "@api";
 import { Redirect } from "react-router-dom";
-import { LoadingScreen } from "@components/LoadingScreen/LoadingScreen";
+import { LoadingScreen } from "@components";
 
 enum EAuthStatus {
     CHECKING = 0,
