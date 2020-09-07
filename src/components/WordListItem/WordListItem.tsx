@@ -23,7 +23,11 @@ export class WordListItem extends React.PureComponent<IWordListItemProps> {
 
         return (
             <li data-test-id={"item"} onClick={onClick}>
-                <span css={activeWord} data-test-id="value" data-is-active={isActive ? 'true' : 'false'}>
+                <span
+                    css={activeWord}
+                    data-test-id="value"
+                    data-is-active={isActive ? "true" : "false"}
+                >
                     {value}
                 </span>
                 {isDifficult && <span data-test-id="isDifficult">*</span>}

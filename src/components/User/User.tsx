@@ -1,9 +1,8 @@
 import React from "react";
-import styled, { CreateStyled } from "@emotion/styled";
+import styled from "@emotion/styled";
 import { MixinFuncTextEllipse } from "@styles";
 
 interface IUser {
-    styles?: CreateStyled;
     user: string;
     onClick(): void;
 }
@@ -23,7 +22,9 @@ export const User: React.FC<IUser> = ({ user, onClick }: IUser) => {
     return (
         <Wrapper>
             <UserName>{user}</UserName>
-            <button onClick={onClick}>Выйти</button>
+            <button data-test-id="button" onClick={onClick}>
+                Выйти
+            </button>
         </Wrapper>
     );
 };

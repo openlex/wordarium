@@ -35,16 +35,16 @@ describe("WordListItem markup", () => {
 
     it("IS ACTIVE if isActive props", () => {
         wordListItem.setProps({ isActive: true });
-        expect(wordListItem.find('[data-is-active]').prop('data-is-active')).toEqual(
-            'true'
-        );
+        expect(
+            wordListItem.find("[data-is-active]").prop("data-is-active")
+        ).toEqual("true");
     });
 
     it("IS NOT ACTIVE if has not got isActive props", () => {
         wordListItem.setProps({ isActive: false });
-        expect(wordListItem.find('[data-is-active]').prop('data-is-active')).toEqual(
-            'false'
-        );
+        expect(
+            wordListItem.find("[data-is-active]").prop("data-is-active")
+        ).toEqual("false");
     });
 
     it("return NULL if VALUE is empty", () => {

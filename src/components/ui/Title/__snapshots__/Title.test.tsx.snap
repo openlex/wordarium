@@ -4,7 +4,7 @@ exports[`Title markup match snapshoot 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "css-1c7if1f-Title1 e1ta12ju0",
+      "class": "css-950tck-Title1 e1ta12ju0",
     },
     "children": Array [
       Object {
@@ -57,7 +57,7 @@ exports[`Title markup match snapshoot 2`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "css-2ze4vp-Title2 e1ta12ju1",
+      "class": "css-1b66zg7-Title2 e1ta12ju1",
     },
     "children": Array [
       Object {
@@ -110,7 +110,7 @@ exports[`Title markup match snapshoot 3`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "css-iii72e-Title3 e1ta12ju2",
+      "class": "css-txd09a-Title3 e1ta12ju2",
     },
     "children": Array [
       Object {
@@ -163,7 +163,7 @@ exports[`Title markup match snapshoot 4`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "css-1shgl81-Title4 e1ta12ju3",
+      "class": "css-s1io3m-Title4 e1ta12ju3",
     },
     "children": Array [
       Object {

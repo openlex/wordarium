@@ -1,11 +1,16 @@
 import * as React from "react";
 import { Form, Formik } from "formik";
-import { validateEmail } from "@/utils";
 import { css } from "@emotion/core";
 import { FieldInput } from "@components/ui/FieldInput/FieldInput";
 import styled from "@emotion/styled";
 import { colors, mixinFlexCenter } from "@styles";
 import { Title } from "@components";
+import { ROUTES } from "@/ROUTES";
+import { RouteComponentProps } from "react-router-dom";
+
+interface IRegistrationProps extends RouteComponentProps {
+    onLogIn(name: string): void;
+}
 
 interface IRegistrationFormErrors {
     email?: string;
@@ -33,22 +38,23 @@ const FormWrapper = styled.div`
     ${mixinFlexCenter}
 `;
 
-export class RegistrationForm extends React.Component {
+export class RegistrationForm extends React.Component<IRegistrationProps> {
     render() {
         return (
             <Wrapper>
-                <Title level={3}>Авторизуйтесь</Title>
+                <Title
+                    styles={css`
+                        margin-bottom: 10px;
+                    `}
+                    level={3}
+                >
+                    Авторизуйтесь
+                </Title>
                 <FormWrapper>
                     <Formik
                         initialValues={{ email: "", name: "", avatar: "" }}
                         validate={(values) => {
                             const errors: IRegistrationFormErrors = {};
-
-                            if (!values.email) {
-                                errors.email = "Required";
-                            } else if (!validateEmail(values.email)) {
-                                errors.email = "Invalid email address";
-                            }
 
                             if (!values.name) {
                                 errors.name = "Required";
@@ -56,16 +62,14 @@ export class RegistrationForm extends React.Component {
 
                             return errors;
                         }}
-                        onSubmit={(values, { setSubmitting }) => {
-                            setTimeout(() => {
-                                alert(JSON.stringify(values, null, 2));
-                                setSubmitting(false);
-                            }, 400);
+                        onSubmit={async ({ name }) => {
+                            await this.props.onLogIn(name);
+                            this.props.history.push(ROUTES.main);
                         }}
                     >
                         {(props) => {
                             return (
-                                <Form>
+                                <Form onSubmit={props.handleSubmit}>
                                     <FieldInput
                                         cssStyle={fieldCss}
                                         label="Ваше имя"
@@ -73,13 +77,13 @@ export class RegistrationForm extends React.Component {
                                         value={props.values.name}
                                         onChangeField={props.setFieldValue}
                                     />
-                                    <FieldInput
-                                        cssStyle={fieldCss}
-                                        label="Вашa почта"
-                                        name="email"
-                                        value={props.values.email}
-                                        onChangeField={props.setFieldValue}
-                                    />
+                                    {/*<FieldInput*/}
+                                    {/*    cssStyle={fieldCss}*/}
+                                    {/*    label="Вашa почта"*/}
+                                    {/*    name="email"*/}
+                                    {/*    value={props.values.email}*/}
+                                    {/*    onChangeField={props.setFieldValue}*/}
+                                    {/*/>*/}
 
                                     <button
                                         type="submit"
