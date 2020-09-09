@@ -2,7 +2,6 @@ import React from "react";
 import { Header } from "@components";
 import { text, withKnobs } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import { emptyBlue } from "@components/ui/ProgressCircle/ProgressCircle.stories";
 
 export default {
     title: "Хэдер страницы",
