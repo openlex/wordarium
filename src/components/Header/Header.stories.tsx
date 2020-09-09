@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "@components";
 import { text, withKnobs } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import {emptyBlue} from "@components/ui/ProgressCircle/ProgressCircle.stories";
+import { emptyBlue } from "@components/ui/ProgressCircle/ProgressCircle.stories";
 
 export default {
     title: "Хэдер страницы",
@@ -19,15 +19,12 @@ export const defaultHeader = () => (
 
 defaultHeader.story = {
     name: "Хэдер для авторизованного пользователя",
-}
+};
 
 export const headerLoggedOut = () => (
-    <Header
-        user=""
-        onLogOut={action("logOut")}
-    />
+    <Header user="" onLogOut={action("logOut")} />
 );
 
 headerLoggedOut.story = {
     name: "Хэдер для неавторизованного пользователя",
-}
+};
