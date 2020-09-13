@@ -1,5 +1,5 @@
 import React from "react";
-import { mount, ReactWrapper } from "enzyme";
+import { mount, ReactWrapper, render } from "enzyme";
 import { User } from "@components";
 
 describe("WordListItem markup", () => {
@@ -17,6 +17,8 @@ describe("WordListItem markup", () => {
     });
 
     it("match snapshoot", () => {
-        expect(user).toMatchSnapshot();
+        expect(
+            render(<User user={textValue} onClick={onClickMock} />)
+        ).toMatchSnapshot();
     });
 });

@@ -1,9 +1,9 @@
 import React from "react";
 import { LoadingScreen } from "@components/LoadingScreen/LoadingScreen";
-import { shallow } from "enzyme";
+import { render } from "enzyme";
 
 describe("loading screen", () => {
     it("markup", () => {
-        expect(shallow(<LoadingScreen />)).toMatchSnapshot();
+        expect(render(<LoadingScreen />)).toMatchSnapshot();
     });
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { mount, ReactWrapper } from "enzyme";
+import { mount, ReactWrapper, render, shallow } from "enzyme";
 import { Header } from "@components";
 
 describe("WordListItem markup", () => {
@@ -23,6 +23,15 @@ describe("WordListItem markup", () => {
     });
 
     it("match snapshoot", () => {
-        expect(user).toMatchSnapshot();
+        expect(
+            render(
+                <Header
+                    user="{
+            user: userName,
+        }"
+                    onLogOut={onClickMock}
+                />
+            )
+        ).toMatchSnapshot();
     });
 });

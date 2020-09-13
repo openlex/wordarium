@@ -38,21 +38,17 @@ const FormWrapper = styled.div`
     ${mixinFlexCenter}
 `;
 
+const HeaderTitle = styled(Title)`
+    margin-bottom: 10px;
+`;
 export class RegistrationForm extends React.Component<IRegistrationProps> {
     render() {
         return (
             <Wrapper>
-                <Title
-                    styles={css`
-                        margin-bottom: 10px;
-                    `}
-                    level={3}
-                >
-                    Авторизуйтесь
-                </Title>
+                <HeaderTitle level={3}>Авторизуйтесь</HeaderTitle>
                 <FormWrapper>
                     <Formik
-                        initialValues={{ email: "", name: "", avatar: "" }}
+                        initialValues={{ name: "" }}
                         validate={(values) => {
                             const errors: IRegistrationFormErrors = {};
 
@@ -77,13 +73,6 @@ export class RegistrationForm extends React.Component<IRegistrationProps> {
                                         value={props.values.name}
                                         onChangeField={props.setFieldValue}
                                     />
-                                    {/*<FieldInput*/}
-                                    {/*    cssStyle={fieldCss}*/}
-                                    {/*    label="Вашa почта"*/}
-                                    {/*    name="email"*/}
-                                    {/*    value={props.values.email}*/}
-                                    {/*    onChangeField={props.setFieldValue}*/}
-                                    {/*/>*/}
 
                                     <button
                                         type="submit"

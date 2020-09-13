@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { MainTitle, User } from "@components";
+import { MainTitle, PlayerAvatar, User } from "@components";
 import { useHistory } from "react-router-dom";
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
@@ -30,7 +30,7 @@ export const Header: React.FC<IHeader> = ({ user, onLogOut }) => {
 
     return (
         <Wrapper>
-            <MainTitle title="Вордариум" />
+            <MainTitle title="Вордариум2" />
             {user && (
                 <User data-test-id="user" user={user} onClick={onLogOutClick} />
             )}
