@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { CreateStyled } from "@emotion/styled";
+import styled  from "@emotion/styled";
 
 export interface ITitleProps {
     level: number;

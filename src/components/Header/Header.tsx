@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { MainTitle, PlayerAvatar, User } from "@components";
+import { MainTitle, User } from "@components";
 import { useHistory } from "react-router-dom";
 /** @jsx jsx */
 import { jsx } from "@emotion/core";

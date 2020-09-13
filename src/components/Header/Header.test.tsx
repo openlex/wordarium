@@ -1,5 +1,5 @@
 import React from "react";
-import { mount, ReactWrapper, render, shallow } from "enzyme";
+import { mount, ReactWrapper, render } from "enzyme";
 import { Header } from "@components";
 
 describe("WordListItem markup", () => {
