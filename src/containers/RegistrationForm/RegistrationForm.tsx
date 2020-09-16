@@ -65,18 +65,23 @@ export class RegistrationForm extends React.Component<IRegistrationProps> {
                     >
                         {(props) => {
                             return (
-                                <Form onSubmit={props.handleSubmit}>
+                                <Form
+                                    data-test-id="form"
+                                    onSubmit={props.handleSubmit}
+                                >
                                     <FieldInput
                                         cssStyle={fieldCss}
                                         label="Ваше имя"
                                         name="name"
                                         value={props.values.name}
                                         onChangeField={props.setFieldValue}
+                                        data-test-id="name-input"
                                     />
 
                                     <button
                                         type="submit"
                                         disabled={props.isSubmitting}
+                                        data-test-id="submit-btn"
                                     >
                                         Войти
                                     </button>

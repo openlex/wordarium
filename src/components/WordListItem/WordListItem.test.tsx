@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, ShallowWrapper } from "enzyme";
+import { render, shallow, ShallowWrapper } from "enzyme";
 import { WordListItem } from "@components";
 
 describe("WordListItem markup", () => {
@@ -53,6 +53,6 @@ describe("WordListItem markup", () => {
     });
 
     it("match snapshoot", () => {
-        expect(wordListItem).toMatchSnapshot();
+        expect(render(<WordListItem value={textValue} />)).toMatchSnapshot();
     });
 });
