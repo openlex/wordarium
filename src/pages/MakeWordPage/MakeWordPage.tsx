@@ -1,22 +1,20 @@
 import * as React from "react";
 import { WordListContainer } from "@containers";
-import { MainTitle, PlayerAvatar } from "@components";
+import { PlayerAvatar } from "@components";
 import { colors } from "@styles";
+import { authOnlyHOC } from "@utils";
 
-export class MakeWordPage extends React.Component {
-    render() {
-        return (
-            <>
-                <PlayerAvatar
-                    size={100}
-                    pic={
-                        "https://image.freepik.com/free-vector/hand-drawn-style-bear-head-for-illustration-design-element_116205-88.jpg"
-                    }
-                    color={colors.red}
-                />
-                <MainTitle title="Вордариум" />
-                <WordListContainer />
-            </>
-        );
-    }
-}
+export const MakeWordPage = authOnlyHOC(() => {
+    return (
+        <>
+            <PlayerAvatar
+                size={100}
+                pic={
+                    "https://image.freepik.com/free-vector/hand-drawn-style-bear-head-for-illustration-design-element_116205-88.jpg"
+                }
+                color={colors.red}
+            />
+            <WordListContainer />
+        </>
+    );
+});

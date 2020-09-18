@@ -4,7 +4,6 @@ import { EProgress, ProgressCircle } from "@components";
 import { colors, mixinAbsoluteCenter } from "@styles";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-
 jsx;
 
 export interface IPlayerAvatarProps {
