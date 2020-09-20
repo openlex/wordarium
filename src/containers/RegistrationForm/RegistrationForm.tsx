@@ -1,14 +1,15 @@
 import * as React from "react";
 import { Form, Formik } from "formik";
-import { validateEmail } from "@/utils";
 import { css } from "@emotion/core";
 import { FieldInput } from "@components/ui/FieldInput/FieldInput";
 import styled from "@emotion/styled";
 import { colors, mixinFlexCenter } from "@styles";
+import { validateForm } from "./validateForm";
+import { FormikHelpers } from "formik/dist/types";
 
-interface IRegistrationFormErrors {
-    email?: string;
-    name?: string;
+interface IRegistrationFormFields {
+    name: string;
+    email: string;
 }
 
 const fieldCss = css`
@@ -25,32 +26,23 @@ const FormWrapper = styled.div`
 `;
 
 export class RegistrationForm extends React.Component {
+    onSubmit = (
+        values: IRegistrationFormFields,
+        formikHelpers: FormikHelpers<IRegistrationFormFields>
+    ) => {
+        setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            formikHelpers.setSubmitting(false);
+        }, 400);
+    };
+
     render() {
         return (
             <FormWrapper>
                 <Formik
-                    initialValues={{ email: "", name: "", avatar: "" }}
-                    validate={(values) => {
-                        const errors: IRegistrationFormErrors = {};
-
-                        if (!values.email) {
-                            errors.email = "Required";
-                        } else if (!validateEmail(values.email)) {
-                            errors.email = "Invalid email address";
-                        }
-
-                        if (!values.name) {
-                            errors.name = "Required";
-                        }
-
-                        return errors;
-                    }}
-                    onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
+                    initialValues={{ email: "", name: "" }}
+                    validate={validateForm}
+                    onSubmit={this.onSubmit}
                 >
                     {(props) => {
                         return (
@@ -71,6 +63,7 @@ export class RegistrationForm extends React.Component {
                                 />
 
                                 <button
+                                    data-test-id="submit-btn"
                                     type="submit"
                                     disabled={props.isSubmitting}
                                 >

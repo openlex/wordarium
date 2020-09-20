@@ -71,6 +71,7 @@
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.5.4",
+    "jest-fetch-mock": "^3.0.3",
     "loki": "^0.23.0",
     "node-sass": "^4.14.1",
     "postcss-custom-properties": "^9.1.1",
@@ -92,12 +93,12 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "jest-emotion": "^10.0.32",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "formik": "^2.1.5",
-    "node-fetch": "^2.6.0",
+    "jest-emotion": "^10.0.32",
+    "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

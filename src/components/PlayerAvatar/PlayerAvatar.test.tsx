@@ -1,6 +1,7 @@
 import React from "react";
 import { EProgress, PlayerAvatar } from "@components";
 import { mount, ReactWrapper } from "enzyme";
+import renderer from "react-test-renderer";
 
 describe("test action buttons", () => {
     let playerAvatar: ReactWrapper;
@@ -67,6 +68,8 @@ describe("test markup", () => {
     });
 
     it("match Snapshot", () => {
-        expect(playerAvatar).toMatchInlineSnapshot(`ReactWrapper {}`);
+        expect(
+            renderer.create(<PlayerAvatar {...avatarProps} />).toJSON()
+        ).toMatchSnapshot();
     });
 });

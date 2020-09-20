@@ -72,10 +72,6 @@ describe("FieldInput item", () => {
             fieldInput.find('[data-test-id="fieldInput"]').props().type
         ).toEqual(defaultType);
     });
-
-    it("match Snapshot", () => {
-        expect(defaultFieldInput).toMatchSnapshot();
-    });
 });
 
 describe("change value", () => {
