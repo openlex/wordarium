@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test markup match Snapshot 1`] = `
+@keyframes animation-0 {
+  from {
+    stroke-dashoffset: 298.45130209103036;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.emotion-10 {
+  position: relative;
+}
+
+.emotion-9 {
+  position: relative;
+}
+
+.emotion-2 {
+  display: block;
+  z-index: 1;
+}
+
+.emotion-0 {
+  fill: none;
+}
+
+.emotion-1 {
+  fill: none;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: animation-0 60s forwards linear;
+  animation: animation-0 60s forwards linear;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.emotion-7 {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-item: center;
+  -webkit-box-align-item: center;
+  -ms-flex-align-item: center;
+  align-item: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: -1;
+  text-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  background-image: url(https://url);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.emotion-5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0px 0px 8px black;
+  font-family: Helvetica;
+}
+
+<div
+  className="emotion-10"
+  data-test-id="container"
+>
+  <div
+    className="emotion-9"
+    data-test-id="container"
+  >
+    <svg
+      className="emotion-2"
+      data-test-id="svg"
+      height={100}
+      width={100}
+    >
+      <circle
+        className="emotion-0"
+        cx={50}
+        cy={50}
+        data-test-id="circle-1"
+        r={47.5}
+        stroke="#e8e8e8"
+        strokeWidth={5}
+      />
+      <circle
+        className="svg-circle emotion-1"
+        cx={50}
+        cy={50}
+        data-test-id="circle-2"
+        r={47.5}
+        stroke="red"
+        strokeDasharray={298.45130209103036}
+        strokeDashoffset={298.45130209103036}
+        strokeWidth={5}
+      />
+    </svg>
+    <div
+      className="emotion-7 emotion-8"
+      data-test-id="content"
+    >
+      <div
+        className="emotion-3 emotion-4"
+        data-test-id="pic"
+      />
+      <div
+        className="emotion-5 emotion-6"
+        data-test-id="timer"
+      >
+        60
+      </div>
+    </div>
+  </div>
+  <div>
+    <button
+      data-test-id="play-btn"
+      disabled={true}
+      onClick={[Function]}
+    >
+      play
+    </button>
+    <button
+      data-test-id="pause-btn"
+      disabled={false}
+      onClick={[Function]}
+    >
+      pause
+    </button>
+    <button
+      data-test-id="stop-btn"
+      disabled={false}
+      onClick={[Function]}
+    >
+      stop
+    </button>
+    <button
+      data-test-id="finish-btn"
+      disabled={false}
+      onClick={[Function]}
+    >
+      finish
+    </button>
+  </div>
+</div>
+`;

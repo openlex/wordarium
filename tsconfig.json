@@ -24,6 +24,9 @@
 	  "@styles/*": ["./src/styles/*"],
 	  "@styles": ["./src/styles/index"],
 
+	  "@utils/*": ["./src/utils/*"],
+	  "@utils": ["./src/utils/index"],
+
 	  "@/*": ["src/*"]
 	},
 	"removeComments": true,

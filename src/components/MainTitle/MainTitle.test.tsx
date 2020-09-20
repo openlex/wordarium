@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow, ShallowWrapper } from "enzyme";
 import { MainTitle } from "@components";
+import renderer from "react-test-renderer";
 
 describe("WordListItem markup", () => {
     let title: ShallowWrapper = {} as ShallowWrapper;
@@ -15,6 +16,8 @@ describe("WordListItem markup", () => {
     });
 
     it("match snapshoot", () => {
-        expect(title).toMatchSnapshot();
+        expect(
+            renderer.create(<MainTitle title={textValue} />).toJSON()
+        ).toMatchSnapshot();
     });
 });

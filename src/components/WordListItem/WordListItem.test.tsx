@@ -51,8 +51,4 @@ describe("WordListItem markup", () => {
         wordListItem = shallow(<WordListItem value="" />);
         expect(wordListItem.type()).toEqual(null);
     });
-
-    it("match snapshoot", () => {
-        expect(wordListItem).toMatchSnapshot();
-    });
 });

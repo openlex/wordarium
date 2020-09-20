@@ -16,8 +16,4 @@ describe("WordList markup", () => {
     it("Has same number of element as in array", () => {
         expect(wordList.find(WordListItem).length).toEqual(wordListMock.length);
     });
-
-    it("match snapshoot", () => {
-        expect(wordList).toMatchSnapshot();
-    });
 });
