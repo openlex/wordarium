@@ -24,6 +24,12 @@
 	  "@styles/*": ["./src/styles/*"],
 	  "@styles": ["./src/styles/index"],
 
+	  "@utils/*": ["./src/utils/*"],
+	  "@utils": ["./src/utils/index"],
+
+	  "@api/*": ["./src/api/*"],
+	  "@api": ["./src/api/index"],
+
 	  "@/*": ["src/*"]
 	},
 	"removeComments": true,

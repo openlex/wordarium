@@ -46,6 +46,7 @@
     "@types/jest-environment-puppeteer": "^4.3.2",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
     "@types/react-test-renderer": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
@@ -92,13 +93,14 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "jest-emotion": "^10.0.32",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "formik": "^2.1.5",
+    "jest-emotion": "^10.0.32",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   }
 }

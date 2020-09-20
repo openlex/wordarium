@@ -1,8 +1,15 @@
 import React from "react";
+import styled from "@emotion/styled";
 
 export interface IMainTitleProps {
     title: string;
 }
+
+const Title = styled.span`
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+`;
 
 export const MainTitle: React.FC<IMainTitleProps> = (
     props: IMainTitleProps
@@ -13,5 +20,5 @@ export const MainTitle: React.FC<IMainTitleProps> = (
         return null;
     }
 
-    return <h1 data-test-id="value">{title}</h1>;
+    return <Title data-test-id="value">{title}</Title>;
 };

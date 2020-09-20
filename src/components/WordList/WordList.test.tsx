@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, ShallowWrapper } from "enzyme";
+import { render, shallow, ShallowWrapper } from "enzyme";
 import { WordList, WordListItem } from "@components";
 import { wordListMock } from "@mocks/wordList.mock";
 
@@ -18,6 +18,8 @@ describe("WordList markup", () => {
     });
 
     it("match snapshoot", () => {
-        expect(wordList).toMatchSnapshot();
+        expect(
+            render(<WordList onClick={onClick} wordList={wordListMock} />)
+        ).toMatchSnapshot();
     });
 });
