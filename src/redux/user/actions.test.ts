@@ -8,7 +8,7 @@ jest.mock("@api/Auth/Auth");
 const USER_NAME = "Alex";
 const middleware = [thunkMiddleware];
 
-describe("Redux with  store", () => {
+describe("test user actions", () => {
 	let store: any;
 	AuthApi.fetchUser = jest.fn().mockResolvedValue({
 		name: USER_NAME,

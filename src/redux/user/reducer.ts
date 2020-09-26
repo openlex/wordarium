@@ -1,37 +1,53 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCurrentUser, logOut, signIn } from "./actions";
 import { IUser } from "./types";
 
-const initialUser: IUser = {
+export const initialUser: IUser = {
 	name: "",
+	isLoading: false,
 };
 
-export const userReducer = createReducer<IUser>(initialUser, {
-	[signIn.pending.type ||
-	logOut.pending.type ||
-	fetchCurrentUser.pending.type]: (state) => {
-		state.isLoading = true;
-	},
+type UserPayloadActionType = PayloadAction<{ name: string }>;
 
-	[signIn.rejected.type ||
-	logOut.rejected.type ||
-	fetchCurrentUser.rejected.type]: (state) => {
-		state.name = "error";
-		state.isLoading = false;
-	},
+const isPendingActions = (action: {
+	type: string;
+}): action is UserPayloadActionType => {
+	return /^(user\/).*(\/pending)$/.test(action.type);
+};
+const isRejectActions = (action: {
+	type: string;
+}): action is UserPayloadActionType => {
+	return /^(user\/).*(\/rejected)$/.test(action.type);
+};
 
-	[signIn.fulfilled.type]: (state, action) => {
-		state.name = action.payload.name;
-		state.isLoading = false;
-	},
+export const userReducer = createReducer<IUser>(
+	initialUser,
+	{
+		[signIn.fulfilled.type]: (state, action) => {
+			state.name = action.payload.name;
+			state.isLoading = false;
+		},
 
-	[logOut.fulfilled.type]: (state) => {
-		state.name = "";
-		state.isLoading = false;
-	},
+		[logOut.fulfilled.type]: () => initialUser,
 
-	[fetchCurrentUser.fulfilled.type]: (state, action) => {
-		state.name = action.payload.name;
-		state.isLoading = false;
+		[fetchCurrentUser.fulfilled.type]: (state, action) => {
+			state.name = action.payload.name;
+			state.isLoading = false;
+		},
 	},
-});
+	[
+		{
+			matcher: isPendingActions,
+			reducer: (state) => {
+				state.isLoading = true;
+			},
+		},
+		{
+			matcher: isRejectActions,
+			reducer: (state) => {
+				state.name = "error";
+				state.isLoading = false;
+			},
+		},
+	]
+);

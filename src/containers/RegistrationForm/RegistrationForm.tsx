@@ -23,7 +23,11 @@ class RegistrationFormView extends React.Component<RegistrationFormContainer> {
 	}
 }
 
-export const RegistrationFormContainer = connect(
+export const RegistrationFormContainer = connect<
+	undefined,
+	{},
+	RegistrationFormContainer
+>(
 	undefined,
 	mapDispatchToProps
 )(RegistrationFormView);
