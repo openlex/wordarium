@@ -1,5 +1,5 @@
 import * as React from "react";
-import { text, number, withKnobs, color } from "@storybook/addon-knobs";
+import { color, number, text, withKnobs } from "@storybook/addon-knobs";
 import { PlayerAvatar } from "@components";
 
 export default {

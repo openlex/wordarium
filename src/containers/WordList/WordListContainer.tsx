@@ -1,11 +1,11 @@
 import * as React from "react";
 import { WordList } from "@components";
-import { IWord } from "@types";
-import { IWordListResponseItem } from "@types";
+import { IWord, IWordListResponseItem } from "@types";
 
 export interface IWordListContainerProps {
 	users?: string;
 }
+
 export interface IWordListContainerState {
 	wordList: IWord[];
 	isSendEnabled: boolean;

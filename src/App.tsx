@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { AuthApi } from "@api";
 import { Header, LoadingScreen } from "@components";
 import { ErrorScreenContainer } from "@containers";

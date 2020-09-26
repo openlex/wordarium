@@ -4,6 +4,7 @@ import { MixinFuncTextEllipse } from "@styles";
 
 interface IUser {
 	user: string;
+
 	onClick(): void;
 }
 

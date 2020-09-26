@@ -1,9 +1,9 @@
 import * as React from "react";
+import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { LoadingScreen, RegistrationForm } from "@components";
-import { logIn, IRootReducer } from "@/redux";
+import { IRootReducer, logIn } from "@/redux";
 import { connect } from "react-redux";
-import { useCallback } from "react";
 import { ROUTES } from "@/ROUTES";
 
 const mapStateToProps = ({ user }: IRootReducer) => {

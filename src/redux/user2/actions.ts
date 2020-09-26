@@ -1,4 +1,4 @@
-import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { AuthApi } from "@api";
 
 export const addUser1 = createAction("user/add", (name: string) => ({

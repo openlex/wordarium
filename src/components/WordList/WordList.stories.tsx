@@ -1,6 +1,6 @@
 import React from "react";
 import { WordList } from "@components";
-import { withKnobs, object } from "@storybook/addon-knobs";
+import { object, withKnobs } from "@storybook/addon-knobs";
 import { IWord } from "@types";
 
 export default {

@@ -4,6 +4,7 @@ import { IWord } from "@types";
 
 export interface IWordListProps {
 	wordList: IWord[];
+
 	onClick(id: string): void;
 }
 

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import thunkMiddleware from "redux-thunk";
-import { logOut, signIn, fetchCurrentUser, userReducer } from "@rdx";
+import { fetchCurrentUser, logOut, signIn, userReducer } from "@rdx";
 import { AuthApi } from "@api/Auth/Auth";
 
 jest.mock("@api/Auth/Auth");

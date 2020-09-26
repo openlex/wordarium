@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { logOut, fetchCurrentUser, signIn } from "./actions";
+import { fetchCurrentUser, logOut, signIn } from "./actions";
 import { IUser } from "./types";
 
 const initialUser: IUser = {

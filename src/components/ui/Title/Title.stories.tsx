@@ -1,6 +1,6 @@
 import React from "react";
 import { Title } from "@components";
-import { withKnobs, text, number } from "@storybook/addon-knobs";
+import { number, text, withKnobs } from "@storybook/addon-knobs";
 
 export default {
 	title: "ui/Заголовки",

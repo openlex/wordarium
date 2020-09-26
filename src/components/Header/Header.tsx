@@ -6,10 +6,12 @@ import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import { colors } from "@styles";
 import { ROUTES } from "@/ROUTES";
+
 jsx;
 
 interface IHeader {
 	user: string;
+
 	onLogOut(): void;
 }
 

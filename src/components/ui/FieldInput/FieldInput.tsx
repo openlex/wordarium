@@ -2,7 +2,8 @@ import React from "react";
 import * as s from "./FieldInput.scss";
 import { ErrorMessage, Field } from "formik";
 /** @jsx jsx */
-import { jsx, css, SerializedStyles } from "@emotion/core";
+import { css, jsx, SerializedStyles } from "@emotion/core";
+
 jsx;
 
 export interface IFieldInputProps {
@@ -13,6 +14,7 @@ export interface IFieldInputProps {
 	type?: string;
 
 	onChange?(result: IFieldInputData): void;
+
 	onChangeField?(
 		field: string,
 		value: string,

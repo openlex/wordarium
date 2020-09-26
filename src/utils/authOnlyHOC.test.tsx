@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import { sleep, authOnlyHOC } from "@utils";
+import { authOnlyHOC, sleep } from "@utils";
 import { act } from "react-dom/test-utils";
 import { AuthApi } from "@api/Auth/Auth";
 
@@ -14,6 +14,7 @@ describe("authorizedOnlyHoc", () => {
 	interface IComponentProps {
 		name: string;
 	}
+
 	const Component: React.FC<IComponentProps> = ({ name }) => <h1>{name}</h1>;
 	const WrappedComponent = authOnlyHOC(Component);
 
