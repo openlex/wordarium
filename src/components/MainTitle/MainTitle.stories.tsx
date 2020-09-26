@@ -1,13 +1,13 @@
 import React from "react";
 import { MainTitle } from "@components";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { text, withKnobs } from "@storybook/addon-knobs";
 
 export default {
-    title: "Заголовок",
-    component: MainTitle,
-    decorators: [withKnobs()],
+	title: "Заголовок",
+	component: MainTitle,
+	decorators: [withKnobs()],
 };
 
 export const WordListItemView = () => {
-    return <MainTitle title={text("слово", "Wordarium")} />;
+	return <MainTitle title={text("слово", "Wordarium")} />;
 };
