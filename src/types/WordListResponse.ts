@@ -5,9 +5,9 @@
 export type WordListResponse = IWordListResponseItem[];
 
 export interface IWordListResponseItem {
-    item: string;
-    weight: number;
-    pos: posType;
+	item: string;
+	weight: number;
+	pos: posType;
 }
 
 export type posType = "adverb" | "adjective" | "verb";

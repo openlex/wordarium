@@ -3,16 +3,16 @@ import { text, number, withKnobs, color } from "@storybook/addon-knobs";
 import { PlayerAvatar } from "@components";
 
 export default {
-    title: "Аватар с прогрессбаром",
-    components: PlayerAvatar,
-    decorators: [withKnobs],
+	title: "Аватар с прогрессбаром",
+	components: PlayerAvatar,
+	decorators: [withKnobs],
 };
 
 export const defaultPlayerAvatar = () => (
-    <PlayerAvatar
-        size={number("Размер", 70)}
-        color={color("Обводки", "green")}
-        time={number("Длительность в сек", 60)}
-        pic={text("Картинка", "Текст какойто")}
-    />
+	<PlayerAvatar
+		size={number("Размер", 70)}
+		color={color("Обводки", "green")}
+		time={number("Длительность в сек", 60)}
+		pic={text("Картинка", "Текст какойто")}
+	/>
 );

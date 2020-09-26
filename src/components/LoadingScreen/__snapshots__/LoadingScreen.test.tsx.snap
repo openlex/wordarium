@@ -4,7 +4,7 @@ exports[`loading screen markup 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "css-17nwl61-Wrapper-mixinFlexCenter e1ozef230",
+      "class": "css-15ikzx0-Wrapper-mixinFlexCenter e1ozef230",
     },
     "children": Array [
       Object {
@@ -51,7 +51,7 @@ initialize {
                   "namespace": "http://www.w3.org/2000/svg",
                   "next": Object {
                     "attribs": Object {
-                      "class": "svg-circle css-wqmigj-ProgressCircle-ProgressCircle",
+                      "class": "svg-circle css-16z2jrp-ProgressCircle-ProgressCircle",
                       "cx": "10",
                       "cy": "10",
                       "data-test-id": "circle-2",
@@ -115,7 +115,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "svg-circle css-wqmigj-ProgressCircle-ProgressCircle",
+                    "class": "svg-circle css-16z2jrp-ProgressCircle-ProgressCircle",
                     "cx": "10",
                     "cy": "10",
                     "data-test-id": "circle-2",
@@ -265,7 +265,7 @@ initialize {
                 "namespace": "http://www.w3.org/2000/svg",
                 "next": Object {
                   "attribs": Object {
-                    "class": "svg-circle css-wqmigj-ProgressCircle-ProgressCircle",
+                    "class": "svg-circle css-16z2jrp-ProgressCircle-ProgressCircle",
                     "cx": "10",
                     "cy": "10",
                     "data-test-id": "circle-2",
@@ -329,7 +329,7 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "svg-circle css-wqmigj-ProgressCircle-ProgressCircle",
+                  "class": "svg-circle css-16z2jrp-ProgressCircle-ProgressCircle",
                   "cx": "10",
                   "cy": "10",
                   "data-test-id": "circle-2",

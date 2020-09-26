@@ -30,11 +30,11 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "css-vra55f-UserName-MixinFuncTextEllipse er7bwhi1",
+                "class": "css-e07z6e-UserName-MixinFuncTextEllipse er7bwhi1",
               },
               "children": Array [
                 Object {
-                  "data": "{ user: userName, }",
+                  "data": "{user: userName}",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -98,11 +98,11 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "css-vra55f-UserName-MixinFuncTextEllipse er7bwhi1",
+                  "class": "css-e07z6e-UserName-MixinFuncTextEllipse er7bwhi1",
                 },
                 "children": Array [
                   Object {
-                    "data": "{ user: userName, }",
+                    "data": "{user: userName}",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -163,11 +163,11 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "css-vra55f-UserName-MixinFuncTextEllipse er7bwhi1",
+              "class": "css-e07z6e-UserName-MixinFuncTextEllipse er7bwhi1",
             },
             "children": Array [
               Object {
-                "data": "{ user: userName, }",
+                "data": "{user: userName}",
                 "next": null,
                 "parent": [Circular],
                 "prev": null,
@@ -231,11 +231,11 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "css-vra55f-UserName-MixinFuncTextEllipse er7bwhi1",
+                "class": "css-e07z6e-UserName-MixinFuncTextEllipse er7bwhi1",
               },
               "children": Array [
                 Object {
-                  "data": "{ user: userName, }",
+                  "data": "{user: userName}",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,

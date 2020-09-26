@@ -1,6 +1,6 @@
 export interface IWord {
-    id: string;
-    value: string;
-    isDifficult?: boolean;
-    isActive?: boolean;
+	id: string;
+	value: string;
+	isDifficult?: boolean;
+	isActive?: boolean;
 }

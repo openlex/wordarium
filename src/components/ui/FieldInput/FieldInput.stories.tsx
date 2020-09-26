@@ -6,18 +6,18 @@ import { Formik } from "formik";
 import { action } from "@storybook/addon-actions";
 
 export default {
-    title: "ui/Поле ввода",
-    components: FieldInput,
-    decorators: [withKnobs],
+	title: "ui/Поле ввода",
+	components: FieldInput,
+	decorators: [withKnobs],
 };
 
 export const DefaultField = () => (
-    <Formik initialValues={{ name: "" }} onSubmit={action("submit")}>
-        <FieldInput
-            name="DefaultField"
-            label={text("Заголовок", "Заголовок поля")}
-            value={text("Содержимое", "Текст")}
-            onChange={action("changeAction")}
-        />
-    </Formik>
+	<Formik initialValues={{ name: "" }} onSubmit={action("submit")}>
+		<FieldInput
+			name="DefaultField"
+			label={text("Заголовок", "Заголовок поля")}
+			value={text("Содержимое", "Текст")}
+			onChange={action("changeAction")}
+		/>
+	</Formik>
 );
