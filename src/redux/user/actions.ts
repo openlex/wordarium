@@ -7,13 +7,10 @@ export const addUser = createAction<IUser>("user/add");
 // export const removeUser = createAction("user/remove");
 // export const userError = createAction("user/error");
 
-export const signIn = createAsyncThunk(
-	"user/signIn",
-	async (name: string, { dispatch }) => {
-		await AuthApi.signIn(name);
-		return { name };
-	}
-);
+export const signIn = createAsyncThunk("user/signIn", async (name: string) => {
+	await AuthApi.signIn(name);
+	return { name };
+});
 
 export const logOut = createAsyncThunk("user/logOut", async () => {
 	await AuthApi.logOut();

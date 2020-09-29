@@ -1,17 +1,16 @@
 import { AnyAction, Dispatch } from "redux";
 
-const thunk = () => <state>({
-	dispatch,
-	getState,
-}: {
+type storeType = {
 	dispatch: Dispatch;
-	getState: () => state;
-}) => (action: AnyAction | Function) => {
+	getState: () => {};
+};
+
+export const myThunk = ({ dispatch, getState }: storeType) => (
+	next: Dispatch
+) => (action: AnyAction | Function) => {
 	if (typeof action === "function") {
 		return action(dispatch, getState);
 	}
 
-	return action;
+	return next(action);
 };
-
-export const myThunk = thunk();
