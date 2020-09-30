@@ -24,14 +24,7 @@ describe("WordListItem markup", () => {
 
 	it("match snapshoot", () => {
 		expect(
-			render(
-				<Header
-					user="{
-            user: userName,
-        }"
-					onLogOut={onClickMock}
-				/>
-			)
+			render(<Header user="{user: userName}" onLogOut={onClickMock} />)
 		).toMatchSnapshot();
 	});
 });

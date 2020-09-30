@@ -2,9 +2,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { AuthApi } from "@api";
 import { Header, LoadingScreen } from "@components";
-import { ErrorScreenContainer, RegistrationForm } from "@containers";
-import { MakeWordPage } from "@pages";
+import { ErrorScreenContainer } from "@containers";
+import { AuthPage, MakeWordPage } from "@pages";
 import { ROUTES } from "@/ROUTES";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
 
 enum ERespStatus {
 	PENDING = 0,
@@ -16,20 +18,21 @@ export const App: React.FC = () => {
 	const location = useLocation();
 	const [user, setUser] = useState("");
 	const [respStatus, setRespStatus] = useState<ERespStatus | null>(null);
-	const onLogIn = useCallback(async (name: string) => {
-		setRespStatus(ERespStatus.PENDING);
-		try {
-			await AuthApi.login(name);
-			setRespStatus(ERespStatus.FULFILL);
-			setUser(name);
-		} catch (err) {
-			setRespStatus(ERespStatus.ERROR);
-		}
-	}, []);
+	// const onLogIn = useCallback(async (name: string) => {
+	// 	console.log('!');
+	// 	// setRespStatus(ERespStatus.PENDING);
+	// 	// try {
+	// 	// 	await AuthApi.signIn(name);
+	// 	// 	setRespStatus(ERespStatus.FULFILL);
+	// 	// 	setUser(name);
+	// 	// } catch (err) {
+	// 	// 	setRespStatus(ERespStatus.ERROR);
+	// 	// }
+	// }, []);
 	const onLogOut = useCallback(async () => {
 		setRespStatus(ERespStatus.PENDING);
 		try {
-			await AuthApi.logout();
+			await AuthApi.logOut();
 			setRespStatus(ERespStatus.FULFILL);
 			setUser("");
 		} catch (err) {
@@ -53,21 +56,18 @@ export const App: React.FC = () => {
 	}, [user, location.pathname]);
 
 	return (
-		<ErrorScreenContainer>
-			<Header user={user} onLogOut={onLogOut} />
-			{respStatus === ERespStatus.PENDING ? (
-				<LoadingScreen />
-			) : (
-				<Switch>
-					<Route
-						path={ROUTES.auth}
-						render={(props) => (
-							<RegistrationForm {...props} onLogIn={onLogIn} />
-						)}
-					/>
-					<Route path={ROUTES.main} component={MakeWordPage} />
-				</Switch>
-			)}
-		</ErrorScreenContainer>
+		<Provider store={store}>
+			<ErrorScreenContainer>
+				<Header user={user} onLogOut={onLogOut} />
+				{respStatus === ERespStatus.PENDING ? (
+					<LoadingScreen />
+				) : (
+					<Switch>
+						<Route path={ROUTES.auth} component={AuthPage} />
+						<Route path={ROUTES.main} component={MakeWordPage} />
+					</Switch>
+				)}
+			</ErrorScreenContainer>
+		</Provider>
 	);
 };
