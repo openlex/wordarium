@@ -2,35 +2,45 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { probabilityMiddleware } from "@utils";
 
 describe("test probability", () => {
-	const initialState = { value: 0 };
-	const slice = createSlice({
-		name: "testProbability",
-		initialState,
-		reducers: {
-			increment: {
-				reducer: (state) => {
-					state.value++;
+	describe("test with store", () => {
+		const initialState = { value: 0 };
+		const slice = createSlice({
+			name: "testProbability",
+			initialState,
+			reducers: {
+				makeIt: {
+					reducer: (state, action) => {
+						state.value = action.payload;
+					},
+					prepare: ({ value, probability }) => ({
+						payload: value,
+						meta: { probability },
+					}),
 				},
-				prepare: () => ({
-					payload: undefined,
-					meta: { probability: ".5" },
-				}),
 			},
-		},
-	});
-	const { increment } = slice.actions;
-	const store = configureStore({
-		reducer: slice.reducer,
-		middleware: (getDefaultMiddleware) =>
-			getDefaultMiddleware().concat(probabilityMiddleware),
+		});
+		const { makeIt } = slice.actions;
+		const store = configureStore({
+			reducer: slice.reducer,
+			middleware: (getDefaultMiddleware) =>
+				getDefaultMiddleware().concat(probabilityMiddleware),
+		});
+
+		it("100%", () => {
+			const value = 500;
+			store.dispatch(makeIt({ value, probability: 1 }));
+			expect(store.getState().value).toBe(value);
+		});
+
+		it("0%", () => {
+			const value = 300;
+			store.dispatch(makeIt({ value, probability: 0 }));
+			expect(store.getState().value).not.toBe(value);
+		});
 	});
 
-	it("test store", () => {
-		// increment();
-		store.dispatch(increment());
-	});
-
-	describe("test probability (no store)", () => {
+	describe("no store", () => {
+		const next = jest.fn();
 		const action = {
 			type: "TEST",
 			meta: {
@@ -40,16 +50,16 @@ describe("test probability", () => {
 
 		it("100%", () => {
 			action.meta.probability = 1;
-			const result = probabilityMiddleware()(action);
+			probabilityMiddleware()(next)(action);
 
-			// expect(result).toEqual(action);
+			expect(next).toBeCalledWith(action);
 		});
 
 		it("0%", () => {
 			action.meta.probability = 0;
-			const result = probabilityMiddleware()(action);
+			probabilityMiddleware()(next)(action);
 
-			// expect(result).toEqual(undefined);
+			expect(next).not.toBeCalled();
 		});
 	});
 });

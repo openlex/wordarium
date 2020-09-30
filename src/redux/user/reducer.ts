@@ -1,10 +1,11 @@
 import { createReducer, PayloadAction } from "@reduxjs/toolkit";
-import { fetchCurrentUser, logOut, signIn } from "./actions";
+import { addUser, fetchCurrentUser, logOut, signIn } from "./actions";
 import { IUser } from "./types";
+import { EUserStatus } from "@rdx/user/EUserStatus";
 
 export const initialUser: IUser = {
 	name: "",
-	isLoading: false,
+	status: EUserStatus.IDLE,
 };
 
 type UserPayloadActionType = PayloadAction<{ name: string }>;
@@ -23,30 +24,28 @@ const isRejectActions = (action: {
 export const userReducer = createReducer<IUser>(
 	initialUser,
 	{
-		[signIn.fulfilled.type]: (state, action) => {
-			state.name = action.payload.name;
-			state.isLoading = false;
-		},
-
 		[logOut.fulfilled.type]: () => initialUser,
-
-		[fetchCurrentUser.fulfilled.type]: (state, action) => {
-			state.name = action.payload.name;
-			state.isLoading = false;
+		[addUser.type]: (state, action) => {
+			state.name = action.payload;
+		},
+		[signIn.fulfilled.type]: (state) => {
+			state.status = EUserStatus.FULFILL;
+		},
+		[fetchCurrentUser.fulfilled.type]: (state) => {
+			state.status = EUserStatus.FULFILL;
 		},
 	},
 	[
 		{
 			matcher: isPendingActions,
 			reducer: (state) => {
-				state.isLoading = true;
+				state.status = EUserStatus.PENDING;
 			},
 		},
 		{
 			matcher: isRejectActions,
 			reducer: (state) => {
-				state.name = "error";
-				state.isLoading = false;
+				state.status = EUserStatus.ERROR;
 			},
 		},
 	]

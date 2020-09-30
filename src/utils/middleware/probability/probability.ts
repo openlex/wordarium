@@ -1,10 +1,10 @@
-import { AnyAction, Dispatch } from "redux";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { Dispatch } from "redux";
 
-export const probabilityMiddleware = () => (next: Dispatch) => (
-	action: PayloadAction
-) => {
-	const { probability } = action.payload?.meta || 0;
+export const probabilityMiddleware = () => (next: Dispatch) => (action: {
+	type: string;
+	meta: { probability: number };
+}) => {
+	const { probability } = action?.meta || 0;
 	if (probability >= Math.random()) {
 		return next(action);
 	}

@@ -1,4 +1,6 @@
+import { EUserStatus } from "@rdx/user/EUserStatus";
+
 export interface IUser {
 	name: string;
-	isLoading?: boolean;
+	status: EUserStatus;
 }

@@ -4,16 +4,16 @@ import {
 	logOut,
 	fetchCurrentUser,
 	initialUser,
+	addUser,
 } from "@rdx";
+import { EUserStatus } from "@rdx";
 
 describe("test user reducers", () => {
 	const name = "Alex";
 	const anyUser = {
 		name: "Killmore",
-		isLoading: false,
+		status: EUserStatus.FULFILL,
 	};
-	const pendingState = { isLoading: true, name: "" };
-	const errorState = { isLoading: false, name: "error" };
 	const enterPayload = { name };
 
 	it("initial state", () => {
@@ -22,88 +22,78 @@ describe("test user reducers", () => {
 		expect(userReducer(undefined, action)).toEqual(initialUser);
 	});
 
-	it("signIn user pending", () => {
-		expect(userReducer(initialUser, { type: signIn.pending.type })).toEqual(
-			pendingState
-		);
-	});
-	it("logOut user pending", () => {
-		expect(userReducer(initialUser, { type: logOut.pending.type })).toEqual(
-			pendingState
-		);
-	});
-	it("fetch user pending", () => {
-		expect(
-			userReducer(initialUser, { type: fetchCurrentUser.pending.type })
-		).toEqual(pendingState);
+	it("addUser", () => {
+		expect(userReducer(initialUser, addUser(name)).name).toBe(name);
 	});
 
-	it("signIn user reject", () => {
-		expect(
-			userReducer(initialUser, { type: signIn.rejected.type })
-		).toEqual(errorState);
-	});
+	describe("signIn", () => {
+		it("signIn user pending", () => {
+			expect(
+				userReducer(initialUser, { type: signIn.pending.type }).status
+			).toEqual(EUserStatus.PENDING);
+		});
 
-	it("logOut exist user reject", () => {
-		expect(userReducer(anyUser, { type: logOut.rejected.type })).toEqual(
-			errorState
-		);
-	});
+		it("signIn reject", () => {
+			expect(
+				userReducer(initialUser, { type: signIn.rejected.type }).status
+			).toEqual(EUserStatus.ERROR);
+		});
 
-	it("logOut no user reject", () => {
-		expect(
-			userReducer(initialUser, { type: logOut.rejected.type })
-		).toEqual(errorState);
+		it("signIn user success", () => {
+			expect(
+				userReducer(initialUser, {
+					type: signIn.fulfilled.type,
+					payload: enterPayload,
+				}).status
+			).toEqual(EUserStatus.FULFILL);
+		});
 	});
+	describe("logOut", () => {
+		it("logOut user pending", () => {
+			expect(
+				userReducer(initialUser, { type: logOut.pending.type }).status
+			).toEqual(EUserStatus.PENDING);
+		});
 
-	it("fetch user reject", () => {
-		expect(
-			userReducer(initialUser, { type: fetchCurrentUser.rejected.type })
-		).toEqual(errorState);
+		it("logOut reject", () => {
+			expect(
+				userReducer(anyUser, { type: logOut.rejected.type }).status
+			).toEqual(EUserStatus.ERROR);
+		});
+
+		it("logOut success", () => {
+			expect(
+				userReducer(anyUser, {
+					type: logOut.fulfilled.type,
+					payload: enterPayload,
+				})
+			).toEqual(initialUser);
+		});
 	});
+	describe("fetch", () => {
+		it("fetch user reject", () => {
+			expect(
+				userReducer(initialUser, {
+					type: fetchCurrentUser.rejected.type,
+				}).status
+			).toEqual(EUserStatus.ERROR);
+		});
 
-	it("signIn user success", () => {
-		expect(
-			userReducer(initialUser, {
-				type: signIn.fulfilled.type,
-				payload: enterPayload,
-			})
-		).toEqual({ name, isLoading: false });
-	});
+		it("fetch user pending", () => {
+			expect(
+				userReducer(initialUser, {
+					type: fetchCurrentUser.pending.type,
+				}).status
+			).toEqual(EUserStatus.PENDING);
+		});
 
-	it("signIn exist user success", () => {
-		expect(
-			userReducer(anyUser, {
-				type: signIn.fulfilled.type,
-				payload: enterPayload,
-			})
-		).toEqual({ name, isLoading: false });
-	});
-
-	it("logOut exist user success", () => {
-		expect(
-			userReducer(anyUser, {
-				type: logOut.fulfilled.type,
-				payload: enterPayload,
-			})
-		).toEqual(initialUser);
-	});
-
-	it("logOut no user success", () => {
-		expect(
-			userReducer(initialUser, {
-				type: logOut.fulfilled.type,
-				payload: enterPayload,
-			})
-		).toEqual(initialUser);
-	});
-
-	it("fetch user success", () => {
-		expect(
-			userReducer(initialUser, {
-				type: fetchCurrentUser.fulfilled.type,
-				payload: enterPayload,
-			})
-		).toEqual({ name, isLoading: false });
+		it("fetch user success", () => {
+			expect(
+				userReducer(initialUser, {
+					type: fetchCurrentUser.fulfilled.type,
+					payload: enterPayload,
+				}).status
+			).toEqual(EUserStatus.FULFILL);
+		});
 	});
 });

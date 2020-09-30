@@ -2,6 +2,7 @@ import { myThunk } from "@utils";
 
 describe("test myThunk middleware", () => {
 	const dispatch = jest.fn();
+	const next = jest.fn();
 	const getState = jest.fn();
 
 	it("return function if func", () => {
@@ -14,6 +15,7 @@ describe("test myThunk middleware", () => {
 
 		expect(action).toBeCalled();
 	});
+
 	it("return action if object", () => {
 		const action = {
 			type: "TEST",
@@ -21,11 +23,12 @@ describe("test myThunk middleware", () => {
 				data: false,
 			},
 		};
-		const thunk = myThunk({
+
+		myThunk({
 			dispatch,
 			getState,
-		})(dispatch)(action);
+		})(next)(action);
 
-		// expect(thunk).toEqual(action);
+		expect(next).toBeCalledWith(action);
 	});
 });
