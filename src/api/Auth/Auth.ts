@@ -1,11 +1,12 @@
 import { sleep } from "@/utils";
 
 export class AuthApi {
-	static login = async (name: string) => {
+	static signIn = async (name: string) => {
 		await sleep(1000);
 		localStorage.setItem("name", name);
 	};
-	static logout = async () => {
+
+	static logOut = async () => {
 		await sleep(1000);
 		localStorage.removeItem("name");
 	};
