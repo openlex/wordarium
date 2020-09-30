@@ -1,3 +1,4 @@
+export * from "./RegistrationForm/RegistrationForm";
 export * from "./PlayerAvatar/PlayerAvatar";
 export * from "./LoadingScreen/LoadingScreen";
 export * from "./WordListItem/WordListItem";
